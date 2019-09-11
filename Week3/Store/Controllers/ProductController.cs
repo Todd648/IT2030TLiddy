@@ -12,33 +12,33 @@ namespace Store.Controllers
 // 
         // GET: /HelloWorld/ 
  
-        public string Index() 
+        public ActionResult Index() 
         { 
-            return "This is my <b>default</b> action..."; 
+            return View(); 
         } 
  
         // 
         // GET: /HelloWorld/Welcome/ 
  
-        public string Welcome() 
+        public ActionResult Welcome() 
         { 
-            return "This is the Welcome action method..."; 
+            return View(); 
         } 
-        public string Browse()
+        public ActionResult Browse()
         {
-            return "Browse Displayed";
-           
+            return View();
+
         }
-        public string Details(int id)
+        public ActionResult Details(int id)
         {
-           string message = "Store.Details, ID =" + id;
-           return message;
-          
+           ViewBag.Message = "Store.Details, ID =" + id;
+            return View();
+
         }
-        public string Location(int zip)
+        public ActionResult Location(int zip)
         {
-            string message = HttpUtility.HtmlEncode("Store.Details, zip =" + zip);
-            return message;
+            ViewBag.Message = HttpUtility.HtmlEncode("Store.Details, zip =" + zip);
+            return View();
 
         }
 
