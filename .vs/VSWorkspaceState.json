@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Week3",
+    "\\Week3\\Store",
+    "\\Week3\\Store\\Controllers",
+    "\\Week4\\MvcMusicStore"
   ],
-  "SelectedNode": "\\Lab2 part 1",
+  "SelectedNode": "\\Week3\\Store\\Controllers\\ProductController.cs",
   "PreviewInSolutionExplorer": false
 }

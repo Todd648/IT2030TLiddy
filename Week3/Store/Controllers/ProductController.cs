@@ -26,13 +26,13 @@ namespace Store.Controllers
         // GET: /Product/Details/
         public ActionResult Details(int id)
         {
-           ViewBag.Message = "Store.Details, ID =" + id;
+           ViewBag.Message = "ID =" + id;
             return View();
         }
         // GET: /Product/Location/ 
         public ActionResult Location(int zip)
         {
-            ViewBag.Message = HttpUtility.HtmlEncode("Store.Details, zip =" + zip);
+            ViewBag.Message = HttpUtility.HtmlEncode("Zip =" + zip);
             return View();
         }
     }
