@@ -1,7 +1,7 @@
 ﻿@model EnrollmentApplication.Models.Enrollment
 
 @{
-    ViewData["Title"] = "Details";
+    ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
@@ -13,24 +13,22 @@
         <dt>
             @Html.DisplayNameFor(model => model.StudentID)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.StudentID)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.CourseID)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.CourseID)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Grade)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Grade)
-        </dd>
+
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.EnrollmentID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EnrollmentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

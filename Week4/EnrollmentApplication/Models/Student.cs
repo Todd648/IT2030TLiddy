@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Web;
 
 namespace EnrollmentApplication.Models
 {
-    public class Student
+    public class Student    
     {
         public virtual string StudentID { get; set; }
         public virtual string LastName { get; set; }

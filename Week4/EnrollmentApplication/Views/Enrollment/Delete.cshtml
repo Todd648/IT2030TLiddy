@@ -1,7 +1,7 @@
 ﻿@model EnrollmentApplication.Models.Enrollment
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewBag.Title = "Delete";
 }
 
 <h2>Delete</h2>
@@ -14,26 +14,27 @@
         <dt>
             @Html.DisplayNameFor(model => model.StudentID)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.StudentID)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.CourseID)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.CourseID)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Grade)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Grade)
-        </dd>
+
     </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="EnrollmentID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
 </div>

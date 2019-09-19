@@ -1,152 +1,127 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
 using EnrollmentApplication.Models;
 
 namespace EnrollmentApplication.Controllers
 {
     public class EnrollmentController : Controller
     {
-        private readonly EnrollmentDB _context;
+        private EnrollmentDB db = new EnrollmentDB();
 
-        public EnrollmentController(EnrollmentDB context)
+        // GET: Enrollments
+        public ActionResult Index()
         {
-            _context = context;
+            return View(db.Enrollments.ToList());
         }
 
-        // GET: Enrollment
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Enrollment.ToListAsync());
-        }
-
-        // GET: Enrollment/Details/5
-        public async Task<IActionResult> Details(string id)
+        // GET: Enrollments/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
-                return NotFound();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            var enrollment = await _context.Enrollment
-                .FirstOrDefaultAsync(m => m.EnrollmentID == id);
+            Enrollment enrollment = db.Enrollments.Find(id);
             if (enrollment == null)
             {
-                return NotFound();
+                return HttpNotFound();
             }
-
             return View(enrollment);
         }
 
-        // GET: Enrollment/Create
-        public IActionResult Create()
+        // GET: Enrollments/Create
+        public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Enrollment/Create
+        // POST: Enrollments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EnrollmentID,StudentID,CourseID,Grade,Student,Course")] Enrollment enrollment)
+        public ActionResult Create([Bind(Include = "EnrollmentID,StudentID,CourseID")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(enrollment);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                db.Enrollments.Add(enrollment);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
+
             return View(enrollment);
         }
 
-        // GET: Enrollment/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        // GET: Enrollments/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
-                return NotFound();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            var enrollment = await _context.Enrollment.FindAsync(id);
+            Enrollment enrollment = db.Enrollments.Find(id);
             if (enrollment == null)
             {
-                return NotFound();
+                return HttpNotFound();
             }
             return View(enrollment);
         }
 
-        // POST: Enrollment/Edit/5
+        // POST: Enrollments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("EnrollmentID,StudentID,CourseID,Grade,Student,Course")] Enrollment enrollment)
+        public ActionResult Edit([Bind(Include = "EnrollmentID,StudentID,CourseID")] Enrollment enrollment)
         {
-            if (id != enrollment.EnrollmentID)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(enrollment);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!EnrollmentExists(enrollment.EnrollmentID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                db.Entry(enrollment).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
             return View(enrollment);
         }
 
-        // GET: Enrollment/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        // GET: Enrollments/Delete/5
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
-                return NotFound();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            var enrollment = await _context.Enrollment
-                .FirstOrDefaultAsync(m => m.EnrollmentID == id);
+            Enrollment enrollment = db.Enrollments.Find(id);
             if (enrollment == null)
             {
-                return NotFound();
+                return HttpNotFound();
             }
-
             return View(enrollment);
         }
 
-        // POST: Enrollment/Delete/5
+        // POST: Enrollments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            var enrollment = await _context.Enrollment.FindAsync(id);
-            _context.Enrollment.Remove(enrollment);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            Enrollment enrollment = db.Enrollments.Find(id);
+            db.Enrollments.Remove(enrollment);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
-        private bool EnrollmentExists(string id)
+        protected override void Dispose(bool disposing)
         {
-            return _context.Enrollment.Any(e => e.EnrollmentID == id);
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
