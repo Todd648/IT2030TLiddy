@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnrollmentApplication", "EnrollmentApplication.csproj", "{A3ADB37A-F1B1-4F57-98D8-393C5D6F87E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnrollmentApplication.Tests", "..\EnrollmentApplication.Tests\EnrollmentApplication.Tests.csproj", "{1EC84C7B-34ED-4A07-84F0-51ABCB39C6FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3ADB37A-F1B1-4F57-98D8-393C5D6F87E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3ADB37A-F1B1-4F57-98D8-393C5D6F87E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3ADB37A-F1B1-4F57-98D8-393C5D6F87E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3ADB37A-F1B1-4F57-98D8-393C5D6F87E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EC84C7B-34ED-4A07-84F0-51ABCB39C6FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EC84C7B-34ED-4A07-84F0-51ABCB39C6FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EC84C7B-34ED-4A07-84F0-51ABCB39C6FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EC84C7B-34ED-4A07-84F0-51ABCB39C6FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7045C9B0-8816-46C1-9F1E-859AF69BEF3F}
+	EndGlobalSection
+EndGlobal
