@@ -139,6 +139,13 @@
     <Compile Include="Migrations\201909262242426_Friday926.Designer.cs">
       <DependentUpon>201909262242426_Friday926.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Migrations\201910071515570_10_7.cs" />
+    <Compile Include="Migrations\201910071515570_10_7.Designer.cs">
+      <DependentUpon>201910071515570_10_7.cs</DependentUpon>
+    </Compile>
+>>>>>>> 284b57a00fe9ef6bf70f90b4ced01f9244f16b48
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\Course.cs" />
@@ -211,6 +218,12 @@
     <EmbeddedResource Include="Migrations\201909262242426_Friday926.resx">
       <DependentUpon>201909262242426_Friday926.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+=======
+    <EmbeddedResource Include="Migrations\201910071515570_10_7.resx">
+      <DependentUpon>201910071515570_10_7.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> 284b57a00fe9ef6bf70f90b4ced01f9244f16b48
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
