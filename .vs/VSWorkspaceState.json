@@ -3,8 +3,7 @@
     "",
     "\\Week3",
     "\\Week3\\Store",
-    "\\Week3\\Store\\Controllers",
-    "\\Week4\\MvcMusicStore"
+    "\\Week3\\Store\\Controllers"
   ],
   "SelectedNode": "\\Week3\\Store\\Controllers\\ProductController.cs",
   "PreviewInSolutionExplorer": false
