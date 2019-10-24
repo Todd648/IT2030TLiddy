@@ -15,8 +15,8 @@ namespace EnrollmentApplication.Models
         [Required]
         [RegularExpression(@"[A-Fa-f]")]
         public virtual char Grade { get; set; }
-        public virtual object Student { get; set; }
-        public virtual object Course { get; set; }
+        public virtual Student Student { get; set; }
+        public virtual Course Course { get; set; }
         public virtual Boolean IsActive { get; set; }
         [Required]
         public virtual string AssignedCampus { get; set; }
@@ -25,6 +25,7 @@ namespace EnrollmentApplication.Models
         [Required]
         [Range(2018, 2147483647)]
         public virtual int EnrollmentYear { get; set; }
+        public virtual string Notes { get; set; }
 
     }
 }
