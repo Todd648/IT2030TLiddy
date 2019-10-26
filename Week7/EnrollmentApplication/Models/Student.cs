@@ -23,8 +23,7 @@ namespace EnrollmentApplication.Models
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-
-                if (Address2 ==Address1)
+                if (Address2 == Address1)
                 {
                 yield return (new ValidationResult("Address2 cannot be the same as Address on"));
                 }
@@ -36,7 +35,7 @@ namespace EnrollmentApplication.Models
                 {
                 yield return (new ValidationResult("Enter a 5 digit zipcode"));
                 }
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

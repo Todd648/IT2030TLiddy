@@ -17,10 +17,10 @@ namespace EnrollmentApplication.Controllers
         // GET: Enrollments
         public ActionResult Index()
         {
-
-            //var enrollments = db.Enrollments.Include(e >= e.Course).Include(e >= e.Student);
-            return View(db.Enrollments.ToList());
+            var enrollments = db.Enrollments.Include(e => e.Course).Include(e => e.Student);
+            return View(enrollments.ToList());
         }
+
         // GET: Enrollments/Details/5
         public ActionResult Details(string id)
         {
@@ -39,6 +39,8 @@ namespace EnrollmentApplication.Controllers
         // GET: Enrollments/Create
         public ActionResult Create()
         {
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseTitle");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName");
             return View();
         }
 
@@ -56,6 +58,8 @@ namespace EnrollmentApplication.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseTitle", enrollment.CourseID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", enrollment.StudentID);
             return View(enrollment);
         }
 
@@ -71,6 +75,8 @@ namespace EnrollmentApplication.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseTitle", enrollment.CourseID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", enrollment.StudentID);
             return View(enrollment);
         }
 
@@ -87,6 +93,8 @@ namespace EnrollmentApplication.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseTitle", enrollment.CourseID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", enrollment.StudentID);
             return View(enrollment);
         }
 
