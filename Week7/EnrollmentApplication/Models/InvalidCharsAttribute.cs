@@ -9,7 +9,7 @@ namespace EnrollmentApplication.Models
     public class InvalidCharsAttribute : ValidationAttribute
     {
         readonly string invalidchars;
-        public InvalidCharsAttribute(string invalidchars)
+        public InvalidCharsAttribute(string invalidchars) :base("{0} Notes contains invalid characters!")
         {
             this.invalidchars = invalidchars;
         }
@@ -23,11 +23,11 @@ namespace EnrollmentApplication.Models
                 
                 if (res1 > 0)
                 {
-                    return new ValidationResult("Notes contains invalid characters!");
+                    var errormessage = FormatErrorMessage(validationContext.DisplayName);
+                    return new ValidationResult(errormessage);
                 }
             }
             return ValidationResult.Success;
-            //return base.IsValid(value, validationContext);
         }
     }
 }
