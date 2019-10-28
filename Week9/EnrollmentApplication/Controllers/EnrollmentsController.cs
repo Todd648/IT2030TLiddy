@@ -10,7 +10,7 @@ using EnrollmentApplication.Models;
 
 namespace EnrollmentApplication.Controllers
 {
-    public class EnrollmentController : Controller
+    public class EnrollmentsController : Controller
     {
         private EnrollmentDB db = new EnrollmentDB();
 
@@ -49,7 +49,7 @@ namespace EnrollmentApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EnrollmentID,StudentID,CourseID,IsActive,AssignedCampus,EnrollmentSemester,EnrollmentYear,Notes")] Enrollment enrollment)
+        public ActionResult Create([Bind(Include = "EnrollmentID,StudentID,CourseID,IsActive,AssignedCampus,EnrollmentSemester,EnrollmentYear,Notes,Student,Course")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace EnrollmentApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EnrollmentID,StudentID,CourseID,IsActive,AssignedCampus,EnrollmentSemester,EnrollmentYear,Notes")] Enrollment enrollment)
+        public ActionResult Edit([Bind(Include = "EnrollmentID,StudentID,CourseID,IsActive,AssignedCampus,EnrollmentSemester,EnrollmentYear,Notes,Student,Course")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {

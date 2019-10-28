@@ -12,9 +12,9 @@ namespace EnrollmentApplication.Models
         public virtual string EnrollmentID { get; set; }
         public virtual string StudentID { get; set; }
         public virtual string CourseID { get; set; }
-        [Required]
-        [RegularExpression(@"[A-Fa-f]")]
-        public virtual char Grade { get; set; }
+        //[Required]
+        //[RegularExpression(@"[A-Fa-f]")]
+        //public virtual char Grade { get; set; }
         public virtual Student Student { get; set; }
         public virtual Course Course { get; set; }
         public virtual Boolean IsActive { get; set; }
