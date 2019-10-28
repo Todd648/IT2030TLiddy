@@ -14,13 +14,13 @@ namespace EnrollmentApplication.Controllers
     {
         private EnrollmentDB db = new EnrollmentDB();
 
-        // GET: Courses
+        // GET: Courses1
         public ActionResult Index()
         {
             return View(db.Courses.ToList());
         }
 
-        // GET: Courses/Details/5
+        // GET: Courses1/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -35,18 +35,18 @@ namespace EnrollmentApplication.Controllers
             return View(course);
         }
 
-        // GET: Courses/Create
+        // GET: Courses1/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Courses/Create
+        // POST: Courses1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CourseID,CourseTitle,CourseDescription,CourseCredits,Notes")] Course course)
+        public ActionResult Create([Bind(Include = "CourseID,CourseTitle,CourseDescription,CourseCredits,InstructorName")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace EnrollmentApplication.Controllers
             return View(course);
         }
 
-        // GET: Courses/Edit/5
+        // GET: Courses1/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -73,12 +73,12 @@ namespace EnrollmentApplication.Controllers
             return View(course);
         }
 
-        // POST: Courses/Edit/5
+        // POST: Courses1/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CourseID,CourseTitle,CourseDescription,CourseCredits,Notes")] Course course)
+        public ActionResult Edit([Bind(Include = "CourseID,CourseTitle,CourseDescription,CourseCredits,InstructorName")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace EnrollmentApplication.Controllers
             return View(course);
         }
 
-        // GET: Courses/Delete/5
+        // GET: Courses1/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace EnrollmentApplication.Controllers
             return View(course);
         }
 
-        // POST: Courses/Delete/5
+        // POST: Courses1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
