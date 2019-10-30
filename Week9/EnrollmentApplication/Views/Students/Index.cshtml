@@ -9,6 +9,16 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<div id="SOTM">
+    @Ajax.ActionLink("Student of the Month", "StudentoftheMonth", null, new AjaxOptions
+        {
+            UpdateTargetId = "StudentoftheMonth",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET"
+        },
+        new { @class = "btn btn-primary" }
+    )
+</div>
 <table class="table">
     <tr>
         <th>

@@ -114,7 +114,18 @@ namespace EnrollmentApplication.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult StudentoftheMonth()
+        {
+            var MonthStudent = getStudentofMonth();
+            return PartialView("StudentofMonth", MonthStudent);
+        }
 
+        private Student getStudentofMonth ()
+        {
+            var MonthStudent = db.Students
+                .OrderBy(a => Guid.NewGuid()).First();
+            return MonthStudent;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

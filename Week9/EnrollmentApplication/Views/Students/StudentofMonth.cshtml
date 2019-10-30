@@ -1,0 +1,24 @@
+﻿@model EnrollmentApplication.Models.Student
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">The Current Student of the Month:</h3>
+        </div>
+        <div class="panel-body">
+            <div id="Student-Details">
+                <p>
+                    <em>StudentID:</em>
+                    @Model.StudentID
+                </p>
+
+                <p>
+                    <em>First:</em>
+                    @Model.FirstName
+                </p>
+                <p>
+                    <em>Last:</em>
+                    @Model.LastName
+                </p>
+                @Html.ActionLink("Return to list","Index","Students")
+            </div>
+        </div>
+    </div>
