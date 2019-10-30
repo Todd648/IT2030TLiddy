@@ -114,13 +114,13 @@ namespace EnrollmentApplication.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult StudentoftheMonth()
+        public ActionResult StudentofMonth()
         {
             var MonthStudent = getStudentofMonth();
             return PartialView("StudentofMonth", MonthStudent);
         }
 
-        private Student getStudentofMonth ()
+        private object getStudentofMonth ()
         {
             var MonthStudent = db.Students
                 .OrderBy(a => Guid.NewGuid()).First();
