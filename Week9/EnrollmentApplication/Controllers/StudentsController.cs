@@ -120,7 +120,7 @@ namespace EnrollmentApplication.Controllers
             return PartialView("StudentofMonth", MonthStudent);
         }
 
-        private object getStudentofMonth ()
+        private Student getStudentofMonth ()
         {
             var MonthStudent = db.Students
                 .OrderBy(a => Guid.NewGuid()).First();
