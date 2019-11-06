@@ -168,5 +168,16 @@ namespace MVCMusicStoreApplication.Controllers
 
             return View();
         }
+        public ActionResult DailyDeal()
+        {
+            var DailyDeal = getDailyDeal();
+            return PartialView("DailyDeal", DailyDeal);
+        }
+        private Album getDailyDeal()
+        {
+            var dailydeal = db.Albums
+                .OrderBy(a => Guid.NewGuid()).First();
+            return dailydeal;
+        }
     }
 }
