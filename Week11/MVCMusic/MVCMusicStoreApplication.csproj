@@ -134,6 +134,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\StoreManagerController.cs" />
+    <Compile Include="Migrations\201911051440407_InitialCreate.cs" />
+    <Compile Include="Migrations\201911051440407_InitialCreate.Designer.cs">
+      <DependentUpon>201911051440407_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -249,8 +254,10 @@
     <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Store\Details.cshtml" />
     <Content Include="Views\Store\ShoppingCart.cshtml" />
-    <Content Include="Views\StoreManager\_ArtistSearch.cshtml" />
+    <Content Include="Views\StoreManager\ArtistSearch.cshtml" />
     <Content Include="Views\StoreManager\DailyDeal.cshtml" />
+    <Content Include="Views\Store\DailyDeal.cshtml" />
+    <Content Include="Views\Store\ArtistSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -263,6 +270,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201911051440407_InitialCreate.resx">
+      <DependentUpon>201911051440407_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

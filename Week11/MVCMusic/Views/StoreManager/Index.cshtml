@@ -19,7 +19,7 @@
 <div class="panel panel-default">
     <div class=" panel-heading">Search by Artist</div>
     <div class="panel-body">
-        @using (Ajax.BeginForm("_ArtistSearch", "Home", new AjaxOptions
+        @using (Ajax.BeginForm("ArtistSearch", "Home", new AjaxOptions
         {
             InsertionMode = InsertionMode.Replace,
             HttpMethod = "GET",

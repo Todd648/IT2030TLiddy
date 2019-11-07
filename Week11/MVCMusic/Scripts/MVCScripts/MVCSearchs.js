@@ -1,3 +1,3 @@
 ﻿function ArtistFailed() {
-    $("#artistsearch").html("Unable to locate Artist");
+    $("#searchresults").html("Unable to locate Artist");
 }
