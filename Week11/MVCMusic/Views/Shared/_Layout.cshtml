@@ -3,16 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - MVC Music Store</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div id="header">
         @Scripts.Render("~/bundles/jquery")
-        <h1>
-            ASP.NET MVC MUSIC STORE
-        </h1>
         <ul id="navlist">
             <li class="first">
                 <a href="/"
@@ -30,7 +27,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - MVC Music Store</p>
         </footer>
     </div>
 
