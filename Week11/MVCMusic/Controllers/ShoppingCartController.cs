@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MVCMusicStoreApplication.Models;
+using MVCMusicStore.Models;
 
-namespace MVCMusicStoreApplication.Controllers
+namespace MVCMusicStore.Controllers
 {
     public class ShoppingCartController : Controller
     { MVCMusicStoreDB db = new MVCMusicStoreDB();

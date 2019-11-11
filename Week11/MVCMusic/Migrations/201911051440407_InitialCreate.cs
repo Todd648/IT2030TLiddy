@@ -1,4 +1,4 @@
-namespace MVCMusicStoreApplication.Migrations
+namespace MVCMusicStore.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

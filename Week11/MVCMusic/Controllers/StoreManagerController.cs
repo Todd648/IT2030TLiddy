@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MVCMusicStoreApplication.Models;
+using MVCMusicStore.Models;
 
-namespace MVCMusicStoreApplication.Controllers
+namespace MVCMusicStore.Controllers
 {
     public class StoreManagerController : Controller
     {
@@ -133,18 +133,6 @@ namespace MVCMusicStoreApplication.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        public ActionResult DailyDeal()
-        {
-            var DailyDeal = getDailyDeal();
-            return PartialView("DailyDeal", DailyDeal);
-        }
-        private Album getDailyDeal()
-        {
-            var dailydeal = db.Albums
-                .OrderBy(a => Guid.NewGuid()).First();
-            return dailydeal;
         }
     }
 }

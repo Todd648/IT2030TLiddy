@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Week10",
+    "\\Week10\\MVCMusic",
+    "\\Week10\\MVCMusic\\Controllers",
+    "\\Week10\\MVCMusic\\Views",
+    "\\Week10\\MVCMusic\\Views\\ShoppingCart",
+    "\\Week11",
+    "\\Week11\\MVCMusic"
   ],
-  "SelectedNode": "\\Week9",
+  "SelectedNode": "\\Week10\\MVCMusic\\Controllers\\StoreController.cs",
   "PreviewInSolutionExplorer": false
 }

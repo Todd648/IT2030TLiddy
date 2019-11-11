@@ -4,22 +4,56 @@
 @{
     ViewBag.Title = "Browse";
 }
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/MVCScripts/MVCSearchs.js"></script>
+}
 
 <h2>Browse</h2>
+<div id="DailyDeal">
+    @Ajax.ActionLink("Click here to see today's special.",
+    "DailyDeal", null, new AjaxOptions
+    {
+        UpdateTargetId = "DailyDeal",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET"
+    },
+    new { @class = "btn btn-primary" })
+</div>
 
-
+<div class="panel panel-default">
+    <div class=" panel-heading">Search by Artist</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("ArtistSearch", "Store", new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            OnFailure = "ArtistFailed",
+            LoadingElementId = "ajax-loader",
+            UpdateTargetId = "searchresults"
+        }))
+        {
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+            <img id="ajax-loader"
+                 src="@Url.Content("~/Content/Images/ajax-loader.gif")"
+                 style="display:none" />
+        }
+        <div id="searchresults"></div>
+    </div>
+</div>
 <div id="genrelist">
     <ul>
         @foreach (var item in Model)
         {
             <li>
-            @Html.ActionLink(item.Name,
-                                      "Index/",
-                                      new { id = item.GenreId })
+                @Html.ActionLink(item.Name,
+                                          "Index/",
+                                          new { id = item.GenreId })
             </li>
         }
 
     </ul>
 </div>
-    
+
 

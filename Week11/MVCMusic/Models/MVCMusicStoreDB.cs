@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace MVCMusicStoreApplication.Models
+namespace MVCMusicStore.Models
 {
     public class MVCMusicStoreDB : DbContext
     {
@@ -19,12 +19,12 @@ namespace MVCMusicStoreApplication.Models
         {
         }
 
-        public System.Data.Entity.DbSet<MVCMusicStoreApplication.Models.Album> Albums { get; set; }
+        public System.Data.Entity.DbSet<MVCMusicStore.Models.Album> Albums { get; set; }
 
-        public System.Data.Entity.DbSet<MVCMusicStoreApplication.Models.Artist> Artists { get; set; }
+        public System.Data.Entity.DbSet<MVCMusicStore.Models.Artist> Artists { get; set; }
 
-        public System.Data.Entity.DbSet<MVCMusicStoreApplication.Models.Genre> Genres { get; set; }
+        public System.Data.Entity.DbSet<MVCMusicStore.Models.Genre> Genres { get; set; }
 
-        public System.Data.Entity.DbSet<MVCMusicStoreApplication.Models.Cart> Carts { get; set; }
+        public System.Data.Entity.DbSet<MVCMusicStore.Models.Cart> Carts { get; set; }
     }
 }

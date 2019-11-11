@@ -1,8 +1,12 @@
-﻿@model IEnumerable<MVCMusicStoreApplication.Models.Genre>
+﻿@model IEnumerable<MVCMusicStore.Models.Genre>
 
 
 @{
     ViewBag.Title = "Browse";
+}
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/MVCScripts/MVCSearchs.js"></script>
 }
 
 <h2>Browse</h2>
@@ -53,7 +57,3 @@
 </div>
 
 
-@section Scripts{
-    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-    <script src="~/Scripts/MVCScripts/MVCSearchs.js"></script>
-}
