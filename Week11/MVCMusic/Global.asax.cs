@@ -6,11 +6,11 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Data.Entity;
-using MVCMusicStore.Models;
+using MVCMusicStoreApplication.Models;
 
 
 
-namespace MVCMusicStore
+namespace MVCMusicStoreApplication
 {
     public class MvcApplication : System.Web.HttpApplication
     {

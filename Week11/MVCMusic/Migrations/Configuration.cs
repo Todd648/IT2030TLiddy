@@ -1,19 +1,19 @@
-namespace MVCMusicStore.Migrations
+namespace MVCMusicStoreApplication.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MVCMusicStore.Models.MVCMusicStoreDB>
+    internal sealed class Configuration : DbMigrationsConfiguration<MVCMusicStoreApplication.Models.MVCMusicStoreDB>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "MVCMusicStore.Models.MVCMusicStoreDB";
+            ContextKey = "MVCMusicStoreApplication.Models.MVCMusicStoreDB";
         }
 
-        protected override void Seed(MVCMusicStore.Models.MVCMusicStoreDB context)
+        protected override void Seed(MVCMusicStoreApplication.Models.MVCMusicStoreDB context)
         {
             //  This method will be called after migrating to the latest version.
 

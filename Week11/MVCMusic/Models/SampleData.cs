@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace MVCMusicStore.Models
+namespace MVCMusicStoreApplication.Models
 {
 	public class SampleData : DropCreateDatabaseIfModelChanges<MVCMusicStoreDB>
     {

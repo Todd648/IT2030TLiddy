@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MVCMusicStore
+namespace MVCMusicStoreApplication
 {
     public class FilterConfig
     {

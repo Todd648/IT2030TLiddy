@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MVCMusicStore.Models
+namespace MVCMusicStoreApplication.Models
 {
     public class ShoppingCart
     {
         public string ShoppingCartID;
-
-
+        
         private MVCMusicStoreDB db = new MVCMusicStoreDB();
+
         public static ShoppingCart GetCart(HttpContextBase context)
         {
             ShoppingCart cart = new ShoppingCart();

@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MVCMusicStore.Models;
+using MVCMusicStoreApplication.Models;
 
-namespace MVCMusicStore.Controllers
+namespace MVCMusicStoreApplication.Controllers
 {
     public class AlbumController : Controller
     {
