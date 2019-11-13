@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace MVCMusicStoreApplication
+namespace MVCMusicStore
 {
     public class BundleConfig
     {

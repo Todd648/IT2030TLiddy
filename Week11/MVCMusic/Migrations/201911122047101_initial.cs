@@ -3,7 +3,7 @@ namespace MVCMusicStoreApplication.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -45,14 +45,31 @@ namespace MVCMusicStoreApplication.Migrations
                     })
                 .PrimaryKey(t => t.GenreId);
             
+            CreateTable(
+                "dbo.Carts",
+                c => new
+                    {
+                        RecordID = c.Int(nullable: false, identity: true),
+                        CartID = c.String(),
+                        AlbumID = c.Int(nullable: false),
+                        Count = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.RecordID)
+                .ForeignKey("dbo.Albums", t => t.AlbumID, cascadeDelete: true)
+                .Index(t => t.AlbumID);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Carts", "AlbumID", "dbo.Albums");
             DropForeignKey("dbo.Albums", "GenreId", "dbo.Genres");
             DropForeignKey("dbo.Albums", "ArtistId", "dbo.Artists");
+            DropIndex("dbo.Carts", new[] { "AlbumID" });
             DropIndex("dbo.Albums", new[] { "ArtistId" });
             DropIndex("dbo.Albums", new[] { "GenreId" });
+            DropTable("dbo.Carts");
             DropTable("dbo.Genres");
             DropTable("dbo.Artists");
             DropTable("dbo.Albums");

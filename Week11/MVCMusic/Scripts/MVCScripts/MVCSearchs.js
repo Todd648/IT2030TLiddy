@@ -3,7 +3,8 @@
 }
 
 $(function () {
-    $(".RemoveLInk").click(function () {
+    $(".RemoveLink").click(function () {
+        //alert("Link Clicked");
         var id = $(this).attr("data-id")
         $.post("/ShoppingCart/RemoveFromCart", { "id": id }, function (data) {
             $("#update-message").text(data.Message);

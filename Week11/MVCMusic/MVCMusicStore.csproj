@@ -135,13 +135,9 @@
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\StoreManagerController.cs" />
-    <Compile Include="Migrations\201911051440407_InitialCreate.cs" />
-    <Compile Include="Migrations\201911051440407_InitialCreate.Designer.cs">
-      <DependentUpon>201911051440407_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911111843281_Initial.cs" />
-    <Compile Include="Migrations\201911111843281_Initial.Designer.cs">
-      <DependentUpon>201911111843281_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201911122047101_initial.cs" />
+    <Compile Include="Migrations\201911122047101_initial.Designer.cs">
+      <DependentUpon>201911122047101_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
@@ -282,11 +278,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911051440407_InitialCreate.resx">
-      <DependentUpon>201911051440407_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911111843281_Initial.resx">
-      <DependentUpon>201911111843281_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911122047101_initial.resx">
+      <DependentUpon>201911122047101_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

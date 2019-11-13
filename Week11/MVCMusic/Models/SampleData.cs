@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace MVCMusicStoreApplication.Models
+namespace MVCMusicStore.Models
 {
-	public class SampleData : DropCreateDatabaseIfModelChanges<MVCMusicStoreDB>
+	public class SampleData : DropCreateDatabaseAlways<MVCMusicStoreDB>
     {
         protected override void Seed(MVCMusicStoreDB context)
         {

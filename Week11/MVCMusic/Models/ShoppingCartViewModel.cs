@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MVCMusicStoreApplication.Models
+namespace MVCMusicStore.Models
 {
     public class ShoppingCartViewModel
     {
