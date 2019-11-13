@@ -32,7 +32,7 @@ namespace MVCMusicStore.Controllers
             ShoppingCart cart = ShoppingCart.GetCart(this.HttpContext);
             Album album = db.Carts.SingleOrDefault(c => c.RecordID == id).AlbumSelected;
             int newItemCount = cart.RemoveFromCart(id);
-            cart.RemoveFromCart(id);
+            // cart.RemoveFromCart(id);
             ShoppingCartRemoveViewModel vm = new ShoppingCartRemoveViewModel()
             {
                 DeleteID = id,
