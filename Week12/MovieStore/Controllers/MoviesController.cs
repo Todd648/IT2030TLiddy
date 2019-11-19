@@ -13,8 +13,17 @@ namespace MovieStore.Controllers
 {
     public class MoviesController : Controller
     {
-        private MovieStoreDBContext db = new MovieStoreDBContext();
+        private MovieStoreDBContext db;
 
+        public MoviesController()
+        {
+            this.db = new MovieStoreDBContext();
+        }
+
+        public MoviesController(MovieStoreDBContext dbContext)
+        {
+            this.db = dbContext;
+        }
         // GET: Movies
         public ActionResult Index()
         {
