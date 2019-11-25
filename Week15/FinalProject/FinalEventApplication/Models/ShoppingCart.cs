@@ -7,5 +7,6 @@ namespace FinalEventApplication.Models
 {
     public class ShoppingCart
     {
+
     }
 }

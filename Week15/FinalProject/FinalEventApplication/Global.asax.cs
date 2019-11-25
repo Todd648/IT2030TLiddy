@@ -5,6 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using FinalEventApplication.Models;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
+
+
+
 
 namespace FinalEventApplication
 {
