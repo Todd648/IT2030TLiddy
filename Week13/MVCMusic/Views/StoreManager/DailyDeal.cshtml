@@ -1,0 +1,22 @@
+﻿@model MVCMusicStore.Models.Album
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">The Daily Deal:</h3>
+    </div>
+    <div class="panel-body">
+        <div id="DailyDeal">
+            <p>
+                <em>Album Name:</em>
+                @Model.Title
+            </p>
+            <p>
+                <em>Album Price:</em>
+                @Model.Price
+            </p>
+            <p>
+                <img src="~/Content/Images/placeholder.gif" />
+            </p>
+            @Html.ActionLink("Close listing", "Index", "StoreManager")
+        </div>
+    </div>
+</div>

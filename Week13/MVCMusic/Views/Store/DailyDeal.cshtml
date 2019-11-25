@@ -1,0 +1,34 @@
+﻿@model MVCMusicStore.Models.Album
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">The Daily Deal:</h3>
+    </div>
+    <div class="panel-body">
+        <div id="DailyDeal">
+            <p>
+                <img alt="@Model.Title" src="@Url.Content(Model.AlbumArtUrl)" />
+            </p>
+            <div id="album-details">
+                <p>
+                    <em>Artist Name:</em>
+                    @Model.Artist.Name
+                </p>
+                <p>
+                    <em>Album Name:</em>
+                    @Model.Title
+                </p>
+                <p>
+                    <em>Album Price:</em>
+                    @Model.Price
+                </p>
+                <p>
+                    @Html.ActionLink("Add to Cart", "AddToCart", "ShoppingCart",
+                             new { id = Model.AlbumId },
+                             new { @class = "btn btn.primary" })
+                </p>
+                @Html.ActionLink("Close listing", "Browse", "Store")
+            </div>
+        </div>
+    </div>
+</div>
