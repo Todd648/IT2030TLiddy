@@ -1,5 +1,5 @@
-﻿function ArtistFailed() {
-    $("#searchresults").html("Unable to locate Artist");
+﻿function OrganizerFailed() {
+    $("#searchresults").html("Unable to locate Organizer");
 }
 
 $(function () {

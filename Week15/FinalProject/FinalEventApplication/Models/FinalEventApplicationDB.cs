@@ -21,7 +21,7 @@ namespace FinalEventApplication.Models
 
         public System.Data.Entity.DbSet<FinalEventApplication.Models.Event> Events { get; set; }
 
-        public System.Data.Entity.DbSet<FinalEventApplication.Models.Artist> Artists { get; set; }
+        public System.Data.Entity.DbSet<FinalEventApplication.Models.Organizer> Organizers { get; set; }
 
         public System.Data.Entity.DbSet<FinalEventApplication.Models.Venue> Venues { get; set; }
 

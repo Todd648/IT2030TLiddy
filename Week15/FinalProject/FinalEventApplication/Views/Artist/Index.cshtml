@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FinalEventApplication.Models.Artist>
+﻿@model IEnumerable<FinalEventApplication.Models.Organizer>
 
 @{
     ViewBag.Title = "Index";
@@ -24,9 +24,9 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ArtistId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ArtistId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ArtistId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.OrganizerId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OrganizerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrganizerId })
             </td>
         </tr>
     }

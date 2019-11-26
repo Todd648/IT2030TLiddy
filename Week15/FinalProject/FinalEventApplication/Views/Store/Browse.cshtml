@@ -22,13 +22,13 @@
 </div>
 
 <div class="panel panel-default">
-    <div class=" panel-heading">Search by Artist</div>
+    <div class=" panel-heading">Search by Organizer</div>
     <div class="panel-body">
-        @using (Ajax.BeginForm("ArtistSearch", "Store", new AjaxOptions
+        @using (Ajax.BeginForm("OrganizerSearch", "Store", new AjaxOptions
         {
             InsertionMode = InsertionMode.Replace,
             HttpMethod = "GET",
-            OnFailure = "ArtistFailed",
+            OnFailure = "OrganizerFailed",
             LoadingElementId = "ajax-loader",
             UpdateTargetId = "searchresults"
         }))

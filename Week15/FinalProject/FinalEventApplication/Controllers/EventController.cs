@@ -17,7 +17,7 @@ namespace FinalEventApplication.Controllers
         // GET: Event
         public ActionResult Index()
         {
-            var Events = db.Events.Include(a => a.Artist).Include(a => a.Venue);
+            var Events = db.Events.Include(a => a.Organizer).Include(a => a.Venue);
             return View(Events.ToList());
         }
 
@@ -39,7 +39,7 @@ namespace FinalEventApplication.Controllers
         // GET: Event/Create
         public ActionResult Create()
         {
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name");
+            ViewBag.OrganizerId = new SelectList(db.Organizers, "OrganizerId", "Name");
             ViewBag.VenueId = new SelectList(db.Venues, "VenueId", "Name");
             return View();
         }
@@ -49,7 +49,7 @@ namespace FinalEventApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventId,VenueId,ArtistId,Title,Price,EventArtUrl,CountryOfOrigin,InStock")] Event Event)
+        public ActionResult Create([Bind(Include = "EventId,VenueId,OrganizerId,Title,Price,EventArtUrl,CountryOfOrigin,InStock")] Event Event)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace FinalEventApplication.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", Event.ArtistId);
+            ViewBag.OrganizerId = new SelectList(db.Organizers, "OrganizerId", "Name", Event.OrganizerId);
             ViewBag.VenueId = new SelectList(db.Venues, "VenueId", "Name", Event.VenueId);
             return View(Event);
         }
@@ -75,7 +75,7 @@ namespace FinalEventApplication.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", Event.ArtistId);
+            ViewBag.OrganizerId = new SelectList(db.Organizers, "OrganizerId", "Name", Event.OrganizerId);
             ViewBag.VenueId = new SelectList(db.Venues, "VenueId", "Name", Event.VenueId);
             return View(Event);
         }
@@ -85,7 +85,7 @@ namespace FinalEventApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventId,VenueId,ArtistId,Title,Price,EventArtUrl,CountryOfOrigin,InStock")] Event Event)
+        public ActionResult Edit([Bind(Include = "EventId,VenueId,OrganizerId,Title,Price,EventArtUrl,CountryOfOrigin,InStock")] Event Event)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace FinalEventApplication.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", Event.ArtistId);
+            ViewBag.OrganizerId = new SelectList(db.Organizers, "OrganizerId", "Name", Event.OrganizerId);
             ViewBag.VenueId = new SelectList(db.Venues, "VenueId", "Name", Event.VenueId);
             return View(Event);
         }

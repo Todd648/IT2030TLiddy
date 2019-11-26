@@ -10,107 +10,107 @@ using FinalEventApplication.Models;
 
 namespace FinalEventApplication.Controllers
 {
-    public class ArtistController : Controller
+    public class OrganizerController : Controller
     {
         private FinalEventApplicationDB db = new FinalEventApplicationDB();
 
-        // GET: Artist
+        // GET: Organizer
         public ActionResult Index()
         {
-            return View(db.Artists.ToList());
+            return View(db.Organizers.ToList());
         }
 
-        // GET: Artist/Details/5
+        // GET: Organizer/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Artist artist = db.Artists.Find(id);
-            if (artist == null)
+            Organizer Organizer = db.Organizers.Find(id);
+            if (Organizer == null)
             {
                 return HttpNotFound();
             }
-            return View(artist);
+            return View(Organizer);
         }
 
-        // GET: Artist/Create
+        // GET: Organizer/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Artist/Create
+        // POST: Organizer/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ArtistId,Name")] Artist artist)
+        public ActionResult Create([Bind(Include = "OrganizerId,Name")] Organizer Organizer)
         {
             if (ModelState.IsValid)
             {
-                db.Artists.Add(artist);
+                db.Organizers.Add(Organizer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(artist);
+            return View(Organizer);
         }
 
-        // GET: Artist/Edit/5
+        // GET: Organizer/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Artist artist = db.Artists.Find(id);
-            if (artist == null)
+            Organizer Organizer = db.Organizers.Find(id);
+            if (Organizer == null)
             {
                 return HttpNotFound();
             }
-            return View(artist);
+            return View(Organizer);
         }
 
-        // POST: Artist/Edit/5
+        // POST: Organizer/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ArtistId,Name")] Artist artist)
+        public ActionResult Edit([Bind(Include = "OrganizerId,Name")] Organizer Organizer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(artist).State = EntityState.Modified;
+                db.Entry(Organizer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(artist);
+            return View(Organizer);
         }
 
-        // GET: Artist/Delete/5
+        // GET: Organizer/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Artist artist = db.Artists.Find(id);
-            if (artist == null)
+            Organizer Organizer = db.Organizers.Find(id);
+            if (Organizer == null)
             {
                 return HttpNotFound();
             }
-            return View(artist);
+            return View(Organizer);
         }
 
-        // POST: Artist/Delete/5
+        // POST: Organizer/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Artist artist = db.Artists.Find(id);
-            db.Artists.Remove(artist);
+            Organizer Organizer = db.Organizers.Find(id);
+            db.Organizers.Remove(Organizer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

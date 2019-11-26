@@ -17,15 +17,15 @@
 </div>
 
 <div class="panel panel-default">
-    <div class=" panel-heading">Search by Artist</div>
+    <div class=" panel-heading">Search by Organizer</div>
     <div class="panel-body">
-        @using (Ajax.BeginForm("ArtistSearch", "Home", new AjaxOptions
+        @using (Ajax.BeginForm("OrganizerSearch", "Home", new AjaxOptions
         {
             InsertionMode = InsertionMode.Replace,
             HttpMethod = "GET",
-            OnFailure = "ArtistFailed",
+            OnFailure = "OrganizerFailed",
             LoadingElementId = "ajax-loader",
-            UpdateTargetId = "artistsearch"
+            UpdateTargetId = "Organizersearch"
         }))
         {
             <input type="text" name="a" />
@@ -34,7 +34,7 @@
                  src="@Url.Content("~/Content/Images/ajax-loader.gif")"
                  style="display:none" />
         }
-        <div id="artistsearch"></div>
+        <div id="Organizersearch"></div>
     </div>
 </div>
 
@@ -44,7 +44,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Artist.Name)
+            @Html.DisplayNameFor(model => model.Organizer.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Venue.Name)
@@ -69,7 +69,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Artist.Name)
+                @Html.DisplayFor(modelItem => item.Organizer.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Venue.Name)

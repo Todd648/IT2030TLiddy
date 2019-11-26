@@ -5,9 +5,9 @@ using System.Web;
 
 namespace FinalEventApplication.Models
 {
-    public class Artist
+    public class Organizer
     {
-        public virtual int ArtistId { get; set; }
+        public virtual int OrganizerId { get; set; }
         public virtual string Name { get; set; }
     }
 }
