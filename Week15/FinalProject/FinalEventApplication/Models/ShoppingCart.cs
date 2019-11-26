@@ -37,13 +37,14 @@ namespace FinalEventApplication.Models
             return db.Carts.Where(c => c.CartID == this.ShoppingCartID).ToList();
         }
 
-        public decimal GetCartTotal()
-        {
-            decimal? total = (from cartItem in db.Carts
-                        where cartItem.CartID == this.ShoppingCartID
-                        select cartItem.EventSelected.Price * (int?)cartItem.Count).Sum();
-            return total ?? decimal.Zero;
-        }
+        //public decimal GetCartTotal()
+        //{
+        //    decimal? total = (from cartItem in db.Carts
+        //                      where cartItem.CartID == this.ShoppingCartID 
+        //                      select cartItem.Count);
+        //                //select cartItem.EventSelected.Price * (int?)cartItem.Count).Sum();
+        //    return total ?? decimal.Zero;
+        //}
         public void AddToCart(int EventID)
         {
             Cart cartItem = db.Carts.SingleOrDefault(c =>c.CartID == this.ShoppingCartID && c.EventID == EventID);

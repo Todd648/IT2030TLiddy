@@ -9,7 +9,8 @@ namespace FinalEventApplication.Models
     {
         public virtual int VenueId { get; set; }
         public virtual string Name { get; set; }
-        public virtual string City { get; set; }        
+        public virtual string City { get; set; }   
+        public virtual string State { get; set; }
         public virtual Event events { get; set; }
     }
 }

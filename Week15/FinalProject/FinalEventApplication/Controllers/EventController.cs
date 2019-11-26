@@ -17,7 +17,7 @@ namespace FinalEventApplication.Controllers
         // GET: Event
         public ActionResult Index()
         {
-            var Events = db.Events.Include(a => a.Organizer).Include(a => a.Venue);
+            var Events = db.Events.Include(a => a.OrganizerId).Include(a => a.VenueId);
             return View(Events.ToList());
         }
 
