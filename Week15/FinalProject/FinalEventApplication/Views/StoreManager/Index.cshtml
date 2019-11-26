@@ -44,24 +44,14 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Organizer.Name)
+            @Html.DisplayNameFor(model => model.OrganizerId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Venue.Name)
+            @Html.DisplayNameFor(model => model.VenueId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            <img src=@Html.DisplayNameFor(model => model.EventArtUrl)>
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InStock)
-        </th>
-        <th>@Html.DisplayNameFor(model => model.CountryOfOrigin)</th>
         <th></th>
     </tr>
 
@@ -69,26 +59,23 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Organizer.Name)
+                @Html.DisplayFor(modelItem => item.OrganizerId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Venue.Name)
+                @Html.DisplayFor(modelItem => item.VenueId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @Html.DisplayFor(modelItem => item.MaxTickets)
             </td>
             <td>
                 @*@Html.DisplayFor(modelItem => item.EventArtUrl)*@
                 <img src="~/Content/Images/placeholder.gif" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.InStock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountryOfOrigin)
+                @Html.DisplayFor(modelItem => item.AvailTickets)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
