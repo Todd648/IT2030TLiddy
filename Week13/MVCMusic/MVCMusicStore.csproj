@@ -31,7 +31,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -127,7 +127,9 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AlbumController.cs" />
     <Compile Include="Controllers\ArtistController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
@@ -140,6 +142,7 @@
       <DependentUpon>201911122047101_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -147,6 +150,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MVCMusicStoreDB.cs" />
     <Compile Include="Models\SampleData.cs" />
     <Compile Include="Models\ShoppingCart.cs" />

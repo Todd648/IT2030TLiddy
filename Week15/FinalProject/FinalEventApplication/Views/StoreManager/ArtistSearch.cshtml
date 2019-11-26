@@ -1,0 +1,10 @@
+﻿
+@model IEnumerable<FinalEventApplication.Models.Artist>
+<div id="Event-list">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.Name</li>
+        }
+    </ul>
+</div>

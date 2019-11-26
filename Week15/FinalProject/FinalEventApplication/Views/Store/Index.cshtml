@@ -1,0 +1,25 @@
+﻿@model IEnumerable<FinalEventApplication.Models.Event>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<div id="EventsinVenue">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                @Html.ActionLink(item.Title,
+                                 "Details/",
+                                 new { id = item.EventId })
+            </li>
+        }
+    </ul>
+    @Html.ActionLink("Return to Browse", "Browse", "Store")
+
+</div>
+

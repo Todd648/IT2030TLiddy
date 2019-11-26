@@ -5,7 +5,9 @@ using System.Web;
 
 namespace FinalEventApplication.Models
 {
-    public class RemoveFromCart
+    public class Artist
     {
+        public virtual int ArtistId { get; set; }
+        public virtual string Name { get; set; }
     }
 }

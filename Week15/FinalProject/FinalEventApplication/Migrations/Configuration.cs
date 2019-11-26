@@ -5,14 +5,14 @@ namespace FinalEventApplication.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<FinalEventApplication.Models.FinalEventApplication>
+    internal sealed class Configuration : DbMigrationsConfiguration<FinalEventApplication.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(FinalEventApplication.Models.FinalEventApplication context)
+        protected override void Seed(FinalEventApplication.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
