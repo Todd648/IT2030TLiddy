@@ -8,17 +8,17 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{00BFA30C-ADD5-4B0B-B5A2-F95E09F22744}</ProjectGuid>
+    <ProjectGuid>{BC15CD6C-8897-4416-AF01-D9F567C9860F}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FinalEventApplication</RootNamespace>
-    <AssemblyName>FinalEventApplication</AssemblyName>
+    <RootNamespace>FinalProject</RootNamespace>
+    <AssemblyName>FinalProject</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44320</IISExpressSSLPort>
+    <IISExpressSSLPort>44340</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -168,29 +168,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\EventController.cs" />
-    <Compile Include="Controllers\OrganizerController.cs" />
-    <Compile Include="Controllers\StoreController.cs" />
-    <Compile Include="Controllers\StoreManagerController.cs" />
-    <Compile Include="Controllers\VenueController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\Organizer.cs" />
-    <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\Venue.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\FinalEventApplicationDB.cs" />
-    <Compile Include="Models\SampleData.cs" />
-    <Compile Include="Models\ShoppingCart.cs" />
-    <Compile Include="Models\ShoppingCartRemoveViewModel.cs" />
-    <Compile Include="Models\ShoppingCartViewModel.cs" />
+    <Compile Include="Models\AccountView\AccountViewModels.cs" />
+    <Compile Include="Models\Cart\Cart.cs" />
+    <Compile Include="Models\Event\Event.cs" />
+    <Compile Include="Models\IdentityModel\IdentityModels.cs" />
+    <Compile Include="Models\ManageView\ManageViewModels.cs" />
+    <Compile Include="Models\MVCEventDB\MVCEventDB.cs" />
+    <Compile Include="Models\Organizer\Organizer.cs" />
+    <Compile Include="Models\RemoveFromCart\RemoveFromCart.cs" />
+    <Compile Include="Models\SeedData\SeedData.cs" />
+    <Compile Include="Models\ShoppingCart\ShoppingCart.cs" />
+    <Compile Include="Models\Store\Store.cs" />
+    <Compile Include="Models\Venue\Venue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -216,7 +210,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\MVCSearch\MVCSearchs.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -251,36 +244,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\StoreManager\ArtistSearch.cshtml" />
-    <Content Include="Views\StoreManager\Create.cshtml" />
-    <Content Include="Views\StoreManager\DailyDeal.cshtml" />
-    <Content Include="Views\StoreManager\Delete.cshtml" />
-    <Content Include="Views\StoreManager\Details.cshtml" />
-    <Content Include="Views\StoreManager\Edit.cshtml" />
-    <Content Include="Views\StoreManager\Index.cshtml" />
-    <Content Include="Views\StoreManager\Test.cshtml" />
-    <Content Include="Views\Event\Create.cshtml" />
-    <Content Include="Views\Event\Delete.cshtml" />
-    <Content Include="Views\Event\Details.cshtml" />
-    <Content Include="Views\Event\Edit.cshtml" />
-    <Content Include="Views\Event\Index.cshtml" />
-    <Content Include="Views\Organizer\Create.cshtml" />
-    <Content Include="Views\Organizer\Delete.cshtml" />
-    <Content Include="Views\Organizer\Details.cshtml" />
-    <Content Include="Views\Organizer\Edit.cshtml" />
-    <Content Include="Views\Organizer\Index.cshtml" />
-    <Content Include="Views\Venue\Create.cshtml" />
-    <Content Include="Views\Venue\Delete.cshtml" />
-    <Content Include="Views\Venue\Details.cshtml" />
-    <Content Include="Views\Venue\Edit.cshtml" />
-    <Content Include="Views\Venue\Index.cshtml" />
-    <Content Include="Views\ShoppingCart\Index.cshtml" />
-    <Content Include="Views\Store\ArtistSearch.cshtml" />
-    <Content Include="Views\Store\Browse.cshtml" />
-    <Content Include="Views\Store\DailyDeal.cshtml" />
-    <Content Include="Views\Store\Details.cshtml" />
-    <Content Include="Views\Store\Index.cshtml" />
-    <Content Include="Views\Store\ShoppingCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -314,9 +277,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>58766</DevelopmentServerPort>
+          <DevelopmentServerPort>61876</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44320/</IISUrl>
+          <IISUrl>https://localhost:44340/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
