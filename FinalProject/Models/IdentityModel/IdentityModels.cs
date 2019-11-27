@@ -27,6 +27,8 @@ namespace FinalProject.Models
 
         public static ApplicationDbContext Create()
         {
+            Database.SetInitializer(new SeedData());
+
             return new ApplicationDbContext();
         }
     }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using System.Data.Entity;
+using FinalProject.Models;
 
 [assembly: OwinStartupAttribute(typeof(FinalProject.Startup))]
 namespace FinalProject
@@ -9,6 +11,7 @@ namespace FinalProject
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+
         }
     }
 }

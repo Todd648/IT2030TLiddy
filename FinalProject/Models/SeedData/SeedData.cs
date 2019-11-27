@@ -6,9 +6,7 @@ using System.Data.Entity;
 
 namespace FinalProject.Models
 {
-    public class SeedData
-    {
-	public class SampleData : DropCreateDatabaseIfModelChanges<MVCEventDB>
+	public class SeedData : DropCreateDatabaseIfModelChanges<MVCEventDB>
         {
             protected override void Seed(MVCEventDB context)
             {
@@ -863,4 +861,3 @@ namespace FinalProject.Models
             }
         }
     }
-}

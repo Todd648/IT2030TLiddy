@@ -5,6 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
+using System.Data.Entity;
 using FinalProject.Models;
 
 namespace FinalProject
@@ -63,6 +64,7 @@ namespace FinalProject
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+            Database.SetInitializer(new SeedData());
         }
     }
 }
