@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using FinalProject.Models;
 
 namespace FinalProject.Models
 {
     public class Organizer
     {
-        public virtual int OrganizerID {get; set;}
+        public virtual int OrganizerID { get; set; }
         public virtual string OrganizerEmail { get; set; }
         public virtual string OrganizerPhone { get; set; }
     }

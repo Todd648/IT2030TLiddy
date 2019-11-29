@@ -64,7 +64,6 @@ namespace FinalProject
             //    ClientId = "",
             //    ClientSecret = ""
             //});
-            Database.SetInitializer(new SeedData());
         }
     }
 }

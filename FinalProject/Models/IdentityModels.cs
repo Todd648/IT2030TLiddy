@@ -27,9 +27,19 @@ namespace FinalProject.Models
 
         public static ApplicationDbContext Create()
         {
-            Database.SetInitializer(new SeedData());
-
             return new ApplicationDbContext();
         }
+    }
+    public class MVCEventDB : DbContext
+    {
+        public MVCEventDB() : base("name=MVCEventDB")
+        {
+
+        }
+        public System.Data.Entity.DbSet<FinalProject.Models.Event> Events { get; set; }
+        public System.Data.Entity.DbSet<FinalProject.Models.Organizer> Organizers { get; set; }
+
+        public System.Data.Entity.DbSet<FinalProject.Models.Venue> Venues { get; set; }
+        // public System.Data.Entity.DbSet<FinalProject.Models.Venue> Venues { get; set; }
     }
 }
