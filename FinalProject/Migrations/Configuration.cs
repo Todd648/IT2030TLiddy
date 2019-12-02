@@ -5,14 +5,14 @@ namespace FinalProject.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<FinalProject.Models.MVCEventDB>
+    internal sealed class Configuration : DbMigrationsConfiguration<FinalProject.Models.FinalProjectDB>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(FinalProject.Models.MVCEventDB context)
+        protected override void Seed(FinalProject.Models.FinalProjectDB context)
         {
             //  This method will be called after migrating to the latest version.
 

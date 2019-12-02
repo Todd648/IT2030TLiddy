@@ -18,7 +18,6 @@ namespace FinalProject.Models
         public virtual string EventType { get; set; }
         public virtual DateTime StartDate { get; set; }
         public virtual DateTime EndDate { get; set; }
-        //public virtual Venue Venue { get; set; }
         public virtual Organizer Organizer { get; set; }
 
     }

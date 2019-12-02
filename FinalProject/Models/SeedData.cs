@@ -6,10 +6,10 @@ using System.Data.Entity;
 
 namespace FinalProject.Models
 {
-	public class SeedData : DropCreateDatabaseIfModelChanges<MVCEventDB>
+    public class SeedData : DropCreateDatabaseIfModelChanges<FinalProjectDB>
+    {
+        protected override void Seed(FinalProjectDB context)
         {
-            protected override void Seed(MVCEventDB context)
-            {
             var Venues = new List<Venue>
                 {
                 new Venue { VenueID = 2, VenueName ="Abravanel Hall", VenueCity ="Richmond", VenueState ="Pennsylvania"},
@@ -802,10 +802,9 @@ namespace FinalProject.Models
                     new Organizer { OrganizerID =19, OrganizerEmail ="Jonathan.Young@yahoo.com", OrganizerPhone="2887495948"},
                     new Organizer { OrganizerID =20, OrganizerEmail ="Dennis.Green@yahoo.com", OrganizerPhone="4233732835"},
                     new Organizer { OrganizerID =21, OrganizerEmail ="Danielle.Torres@yahoo.com", OrganizerPhone="8398993823"},
-
                 };
 
-            new List<Event>
+            var Events = new List<Event>
                 {
                 new Event { EventID=1, MaxTickets = 4705, AvailableTickets = 962, EventType = "Movie", Title = "Something" , Description  = "Type something here", StartDate = DateTime.ParseExact("11/21/19 09:01", "MM/dd/yy hh:mm tt",null), EndDate =  DateTime.ParseExact("11/21/19 21:29", "MM/dd/yy hh:mm tt",null)},
                 new Event { EventID=2, MaxTickets = 6131, AvailableTickets = 862, EventType = "Theatre", Title = "Something" , Description  = "Type something here", StartDate = DateTime.ParseExact("11/29/19 18:21", "MM/dd/yy hh:mm tt",null), EndDate =  DateTime.ParseExact("11/30/19 15:46", "MM/dd/yy hh:mm tt",null)},
@@ -857,7 +856,7 @@ namespace FinalProject.Models
                 new Event { EventID=48, MaxTickets = 8111, AvailableTickets = 7343, EventType = "Shenanigans", Title = "Something" , Description  = "Type something here", StartDate = DateTime.ParseExact("11/29/19 14:37", "MM/dd/yy hh:mm tt",null), EndDate =  DateTime.ParseExact("11/30/19 05:12", "MM/dd/yy hh:mm tt",null)},
                 new Event { EventID=49, MaxTickets = 5643, AvailableTickets = 3456, EventType = "Music", Title = "Something" , Description  = "Type something here", StartDate = DateTime.ParseExact("12/09/19 04:07", "MM/dd/yy hh:mm tt",null), EndDate =  DateTime.ParseExact("12/09/19 11:45", "MM/dd/yy hh:mm tt",null)},
                 new Event { EventID=50, MaxTickets = 3357, AvailableTickets = 236, EventType = "Shenanigans", Title = "Something" , Description  = "Type something here", StartDate = DateTime.ParseExact("12/19/19 17:16", "MM/dd/yy hh:mm tt",null), EndDate =  DateTime.ParseExact("12/20/19 03:25", "MM/dd/yy hh:mm tt",null)}
-                }.ForEach(a => context.Events.Add(a));
-        }
+                };
         }
     }
+}

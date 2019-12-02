@@ -12,7 +12,7 @@ namespace FinalProject.Controllers
 {
     public class OrganizersController : Controller
     {
-        private MVCEventDB db = new MVCEventDB();
+        private FinalProjectDB db = new FinalProjectDB();
 
         // GET: Organizers
         public ActionResult Index()

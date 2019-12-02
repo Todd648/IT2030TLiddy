@@ -1,0 +1,43 @@
+﻿@model IEnumerable<FinalProject.Models.Event>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+@foreach (var item in Model)
+{
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+        <p>
+        <p>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+        <p>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EventType)
+        <p>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StartDate)
+        <p>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EndDate)
+        <p>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Organizer)
+        <p>
+    </td>
+</tr>
+
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" value="Add to Cart" onclick="location.href='@Url.Action("AddToCart", "ShoppingCart", new { id = item.AlbumId })'" />
+    </div>
+    @Html.ActionLink("Return to Browse", "Browse", "Store")
+}
+

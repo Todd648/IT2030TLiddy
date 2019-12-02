@@ -30,9 +30,9 @@ namespace FinalProject.Models
             return new ApplicationDbContext();
         }
     }
-    public class MVCEventDB : DbContext
+    public class FinalProjectDB : DbContext
     {
-        public MVCEventDB() : base("name=MVCEventDB")
+        public FinalProjectDB() : base("name=MVCEventDB")
         {
 
         }
