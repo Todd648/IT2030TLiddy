@@ -17,7 +17,8 @@ namespace FinalProject.Controllers
         // GET: Events
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+            var events = db.Events.Include(a => a.Title).Include(a => a.EventType);
+            return View(events.ToList());
         }
 
         // GET: Events/Details/5

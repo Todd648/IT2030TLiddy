@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FinalProject.Models.Venue>
+﻿@model IEnumerable<FinalProject.Models.Event>
 
 
 @{
@@ -6,7 +6,7 @@
 }
 @section Scripts{
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-    <script src="~/Scripts/MVCScripts/MVCSearchs.js"></script>
+    <script src="~/Scripts/MVCEventScripts/MVCSearchs.js"></script>
 }
 
 <h2>Browse</h2>
@@ -22,13 +22,13 @@
 </div>
 
 <div class="panel panel-default">
-    <div class=" panel-heading">Search by Artist</div>
+    <div class=" panel-heading">Search by Event Title</div>
     <div class="panel-body">
         @using (Ajax.BeginForm("EventSearch", "Home", new AjaxOptions
         {
             InsertionMode = InsertionMode.Replace,
             HttpMethod = "GET",
-            OnFailure = "ArtistFailed",
+            OnFailure = "EventFailed",
             LoadingElementId = "ajax-loader",
             UpdateTargetId = "searchresults"
         }))
@@ -42,12 +42,12 @@
         <div id="searchresults"></div>
     </div>
 </div>
-<div id="venuelist">
+<div id="eventlist">
     <ul>
         @foreach (var item in Model)
         {
             <li>
-                @Html.ActionLink(item.Name,"Index/", new { id = item.VenueName })
+                @Html.ActionLink(item.Title,"Index/", new { id = item.EventID })
             </li>
         }
 
