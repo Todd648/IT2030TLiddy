@@ -1,0 +1,106 @@
+﻿@model FinalProject2.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxTickets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxTickets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvailableTickets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvailableTickets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizerPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizerPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VenueName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenueName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VenueCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenueCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VenueState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenueState)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EventID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

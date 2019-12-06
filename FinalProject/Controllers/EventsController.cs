@@ -12,13 +12,12 @@ namespace FinalProject.Controllers
 {
     public class EventsController : Controller
     {
-        private FinalProjectDB db = new FinalProjectDB();
+        private MVCEventDB db = new MVCEventDB();
 
         // GET: Events
         public ActionResult Index()
         {
-            var events = db.Events.Include(a => a.Title).Include(a => a.EventType);
-            return View(events.ToList());
+            return View(db.Events.ToList());
         }
 
         // GET: Events/Details/5
@@ -47,7 +46,7 @@ namespace FinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventID,MaxTickets,AvailableTickets,Title,Description,EventType,StartDate,EndDate")] Event @event)
+        public ActionResult Create([Bind(Include = "EventID,MaxTickets,AvailableTickets,Title,Description,EventType,StartDate,EndDate,OrganizerEmail,OrganizerPhone,VenueName,VenueCity,VenueState")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +78,7 @@ namespace FinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventID,MaxTickets,AvailableTickets,Title,Description,EventType,StartDate,EndDate")] Event @event)
+        public ActionResult Edit([Bind(Include = "EventID,MaxTickets,AvailableTickets,Title,Description,EventType,StartDate,EndDate,OrganizerEmail,OrganizerPhone,VenueName,VenueCity,VenueState")] Event @event)
         {
             if (ModelState.IsValid)
             {

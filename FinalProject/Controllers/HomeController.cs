@@ -9,63 +9,13 @@ namespace FinalProject.Controllers
 {
     public class HomeController : Controller
     {
-        MVCEventDB db = new MVCEventDB();
+        private MVCEventDB db = new MVCEventDB();
 
-        //Get: Home
-        public ActionResult Index(int id)
-        {
-            return View(GetEvents(id));
-        }
-
-        private List<Event> GetEvents(int id)
-        {
-            return db.Events
-                .Where(a => a.EventID == (id))
-                .ToList();
-        }
-
-        //Get: Browse
-        public ActionResult Browse()
-        {
-            return View(db.Events.ToList());
-        }
-
-        //Get: Details
-        public ActionResult Details(int id)
-        {
-            return View(GetDetails(id));
-        }
-        private List<Event> GetDetails(int id)
-        {
-            return db.Events
-                .Where(e => e.EventID == (id))
-                .ToList();
-        }
-
-        //Get: Deals
-        public ActionResult DailyDeal()
-        {
-            var DailyDeal = getDailyDeal();
-            return PartialView("DailyDeal", DailyDeal);
-        }
-        private Event getDailyDeal()
-        {
-            var dailydeal = db.Events
-                .OrderBy(a => Guid.NewGuid()).First();
-            return dailydeal;
-        }
-
-        //Get: ShoppingCart
-        public ActionResult ShoppingCart()
+        public ActionResult Index()
         {
             return View();
         }
-        public ActionResult AddToCart(int id)
-        {
-            return null;
-        }
-
-        //Get: EventsByType
+       
         public ActionResult EventTypeSearch(string q)
         {
             var events = GetTypes(q);
@@ -74,7 +24,7 @@ namespace FinalProject.Controllers
         private List<Event> GetTypes(string searchString)
         {
             return db.Events
-                .Where(a => a.EventType.Contains(searchString))
+                .Where(a => a.Type.Name.Contains(searchString))
                 .ToList();
         }
 
@@ -87,8 +37,26 @@ namespace FinalProject.Controllers
         private List<Event> GetCity(string searchString)
         {
             return db.Events
-                .Where(a => a.Description.Contains(searchString))
+                .Where(a => a.VenueCity.Contains(searchString))
                 .ToList();
         }
+        //Get: Deals
+        public ActionResult DailyDeal(DateTime dateTime)
+        {
+            var DailyDeal = GetDailyDeal(dateTime);
+            return PartialView("DailyDeal", DailyDeal);
+        }
+        private List<Event> GetDailyDeal(DateTime dateTime)
+        {
+            DateTime theFuture = DateTime.Today.AddDays(2);
+            DateTime thePast = DateTime.Today.AddDays(-1);
+
+            var dailydeal = db.Events
+                    .Where(a => a.StartDate <= theFuture)
+                    .Where(a => a.StartDate > thePast)
+                    .ToList();
+            return dailydeal;
+        }
+
     }
 }

@@ -9,16 +9,21 @@ namespace FinalProject.Models
 {
     public class Event
     {
-        [Required]
+        [Key]
         public virtual int EventID { get; set; }
         public virtual int MaxTickets { get; set; }
         public virtual int AvailableTickets { get; set; }
-        public virtual string Title { get; set; }
+        public virtual string EventName { get; set; }
         public virtual string Description { get; set; }
-        public virtual string EventType { get; set; }
+        public virtual EventType Type { get; set; }
         public virtual DateTime StartDate { get; set; }
         public virtual DateTime EndDate { get; set; }
-        public virtual Organizer Organizer { get; set; }
+        public virtual string OrganizerEmail { get; set; }
+        public virtual string OrganizerPhone { get; set; }
+        public virtual string VenueName { get; set; }
+        public virtual string VenueCity { get; set; }
+        public virtual string VenueState { get; set; }
+
 
     }
 }

@@ -20,11 +20,8 @@ namespace FinalProject.Models
         }
 
         public System.Data.Entity.DbSet<FinalProject.Models.Event> Events { get; set; }
+        public System.Data.Entity.DbSet<FinalProject.Models.Order> Orders { get; set; }
 
-        public System.Data.Entity.DbSet<FinalProject.Models.Venue> Venues { get; set; }
-
-        public System.Data.Entity.DbSet<FinalProject.Models.Organizer> Organizers { get; set; }
-
-        public System.Data.Entity.DbSet<FinalProject.Models.Cart> Carts { get; set; }
+        public System.Data.Entity.DbSet<FinalProject.Models.EventType> EventTypes { get; set; }
     }
 }

@@ -21,7 +21,8 @@ namespace FinalProject.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("aspnet-FinalProject-20191126063903", throwIfV1Schema: false)
+           //C:\Users\User\source\repos\IT2030TLiddy\FinalProject\App_Data\aspnet-FinalProject-20191126063903.mdf
         {
         }
 
@@ -37,9 +38,6 @@ namespace FinalProject.Models
 
         }
         public System.Data.Entity.DbSet<FinalProject.Models.Event> Events { get; set; }
-        public System.Data.Entity.DbSet<FinalProject.Models.Organizer> Organizers { get; set; }
 
-        public System.Data.Entity.DbSet<FinalProject.Models.Venue> Venues { get; set; }
-        // public System.Data.Entity.DbSet<FinalProject.Models.Venue> Venues { get; set; }
     }
 }
