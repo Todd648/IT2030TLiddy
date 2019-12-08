@@ -7,7 +7,10 @@
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
-
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/MVCEventScripts/EventScripts.js"></script>
+}
 <div id="LastMinuteDeals">
     @Ajax.ActionLink("Click here to see today's special.",
     "LastMinuteDeals", null, new AjaxOptions
@@ -33,7 +36,7 @@
         {
             <input type="text" name="a" />
             <input type="submit" value="search" />
-           
+
         }
         <div id="CitySearch"></div>
     </div>

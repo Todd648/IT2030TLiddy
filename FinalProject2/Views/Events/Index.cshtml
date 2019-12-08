@@ -12,12 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MaxTickets)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AvailableTickets)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.EventName)
         </th>
         <th>
@@ -27,16 +21,7 @@
             @Html.DisplayNameFor(model => model.StartDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrganizerEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrganizerPhone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VenueName)
+            @Html.DisplayNameFor(model => model.OrganizerName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.VenueCity)
@@ -50,12 +35,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.MaxTickets)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AvailableTickets)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.EventName)
         </td>
         <td>
@@ -65,16 +44,7 @@
             @Html.DisplayFor(modelItem => item.StartDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrganizerEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrganizerPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VenueName)
+            @Html.DisplayFor(modelItem => item.OrganizerName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.VenueCity)

@@ -8,11 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject2.Models;
 
-namespace FinalProject2.Controllers
+namespace FInalProject2.Controllers
 {
     public class EventTypesController : Controller
     {
-        MVCEventDB db = new MVCEventDB();
+        private MVCEventDB db = new MVCEventDB();
 
         // GET: EventTypes
         public ActionResult Index()
