@@ -108,7 +108,12 @@
 
     </dl>
 </div>
+
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.EventID }) |
     @Html.ActionLink("Back to List", "Index")
+</p>
+<p>
+    <input type="button" value="Add to Cart" onclick="location.href='@Url.Action("OrderCart", "AddOrder", new { id = Model.EventID })'" />
 </p>

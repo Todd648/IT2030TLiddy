@@ -1,4 +1,8 @@
 ﻿@model IEnumerable<FinalProject2.Models.Event>
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/MVCEventScripts/EventScripts.js"></script>
+}
 <div id="Event-List">
     <ul>
         @foreach (var item in Model)
