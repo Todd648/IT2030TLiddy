@@ -12,116 +12,51 @@ namespace FinalProject2.Controllers
 {
     public class OrdersController : Controller
     {
+
         private MVCEventDB db = new MVCEventDB();
 
         // GET: Orders
         public ActionResult Index()
         {
-            return View(db.Orders.ToList());
+            OrderCart cart = OrderCart.GetCart(this.HttpContext);
+            OrderCartViewModel vm = new OrderCartViewModel()
+            {
+                CartItems = cart.GetCartItems(),
+            };
+
+            return View(vm);
         }
-
-        // GET: Orders/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult AddOrder(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
-            if (order == null)
-            {
-                return HttpNotFound();
-            }
-            return View(order);
-        }
-
-        // GET: Orders/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Orders/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,TicketCount,EventID")] Order order)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Orders.Add(order);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(order);
-        }
-
-        // GET: Orders/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
-            if (order == null)
-            {
-                return HttpNotFound();
-            }
-            return View(order);
-        }
-
-        // POST: Orders/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderID,TicketCount,EventID")] Order order)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(order).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(order);
-        }
-
-        // GET: Orders/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
-            if (order == null)
-            {
-                return HttpNotFound();
-            }
-            return View(order);
-        }
-
-        // POST: Orders/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
-            db.SaveChanges();
+            OrderCart cart = OrderCart.GetCart(this.HttpContext);
+            cart.AddOrder(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        [HttpPost]
+        public ActionResult RemoveOrder(int id)
         {
-            if (disposing)
+            OrderCart cart = OrderCart.GetCart(this.HttpContext);
+            Event @event = db.Orders.SingleOrDefault(e => e.OrderID == id).EventSelected;
+            int newItemCount = cart.RemoveOrder(id);
+            // cart.RemoveFromCart(id);
+            OrderCartRemoveViewModel vm = new OrderCartRemoveViewModel()
             {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+                DeleteID = id,
+                ItemCount = newItemCount,
+                Message = @event + " has been removed from the cart"
+            };
+            return Json(vm);
+        }
+
+        public ActionResult Register()
+        {
+            return View("~/Views/Account/Login.cshtml");
+        }
+
+        public ActionResult OrderSummary()
+        {
+            return View("~/Views/Orders/OrderSummary.cshtml");
         }
     }
 }

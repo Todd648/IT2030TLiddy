@@ -1,0 +1,43 @@
+﻿@model IEnumerable<FinalProject2.Models.Event>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VenueName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VenueCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VenueState)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VenueName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VenueCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VenueState)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.EventID }) |
+        </td>
+    </tr>
+}
+
+</table>

@@ -36,6 +36,7 @@ namespace FinalProject2.Controllers
         }
 
         // GET: Events/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<FinalProject2.Models.Event>
+<div id="LastMinuteDeals">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.EventName</li>
+            <li>@item.StartDate</li>
+            <li>@item.VenueCity</li>
+            <li>@item.VenueState</li>
+
+        }
+    </ul>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
