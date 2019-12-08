@@ -26,6 +26,7 @@ namespace FinalProject2.Controllers
 
             return View(vm);
         }
+        [Authorize]
         public ActionResult AddOrder(int id)
         {
             OrderCart cart = OrderCart.GetCart(this.HttpContext);

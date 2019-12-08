@@ -37,7 +37,7 @@ namespace FinalProject2.Models
         {
             return db.Orders.Where(c => c.CartID == this.OrderCartID).ToList();
         }
-
+        
         public void AddOrder(int eventID)
         {
             Order cartItem = db.Orders.SingleOrDefault(c =>c.CartID == this.OrderCartID && c.EventID == eventID);

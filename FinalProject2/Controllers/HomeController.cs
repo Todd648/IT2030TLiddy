@@ -29,10 +29,28 @@ namespace FinalProject2.Controllers
 
             return View();
         }
-        public ActionResult CitySearch(string q)
+
+        public ActionResult SearchIt(string q)
         {
-            var results = GetCities(q);
-            return PartialView(results);
+            var artists = GetsSomething(q);
+            return PartialView(artists);
+        }
+        private List<Event> GetsSomething(string searchString)
+        {
+            return db.Events
+                .Where(a => a.EventName.Contains(searchString))
+                .ToList();
+        }
+
+
+
+
+
+
+        public ActionResult CitySearch(string c)
+        {
+            var cities = GetCities(c);
+            return PartialView(cities);
         }
         private List<Event> GetCities(string searchString)
         {
@@ -40,10 +58,10 @@ namespace FinalProject2.Controllers
                 .Where(a => a.VenueCity.Contains(searchString))
                 .ToList();
         }
-        public ActionResult StateSearch(string q)
+        public ActionResult StateSearch(string s)
         {
-            var results = GetStates(q);
-            return PartialView(results);
+            var states = GetStates(s);
+            return PartialView(states);
         }
         private List<Event> GetStates(string searchString)
         {
@@ -51,10 +69,10 @@ namespace FinalProject2.Controllers
                 .Where(a => a.VenueState.Contains(searchString))
                 .ToList();
         }
-        public ActionResult TypeSearch(string q)
+        public ActionResult TypeSearch(string t)
         {
-            var results = GetTypes(q);
-            return PartialView(results);
+            var types = GetTypes(t);
+            return PartialView(types);
         }
         private List<Event> GetTypes(string searchString)
         {
@@ -63,10 +81,10 @@ namespace FinalProject2.Controllers
                 .ToList();
         }
 
-        public ActionResult EventSearch(string q)
+        public ActionResult EventSearch(string e)
         {
-            var results = GetEvents(q);
-            return PartialView(results);
+            var events = GetEvents(e);
+            return PartialView(events);
         }
         private List<Event> GetEvents(string searchString)
         {
@@ -77,12 +95,15 @@ namespace FinalProject2.Controllers
 
         public ActionResult LastMinuteDeals()
         {
-            var LastMinuteDeals = getDailyDeal();
-            return PartialView("LastMinuteDeals", LastMinuteDeals);
+            List<Event> LastMinuteDeals = GetLastMinuteDeals();
+            return PartialView(LastMinuteDeals);
         }
-        private List<Event> getDailyDeal()
+        private List<Event> GetLastMinuteDeals()
         {
-            return db.Events.Where(a => a.StartDate < DateTime.Today.AddDays(2)).ToList();
+            var comingSoon = DateTime.Today.AddDays(2);
+            var thePast = DateTime.Today.AddDays(-1);
+
+            return db.Events.Where(a => a.StartDate > thePast && a.StartDate <= comingSoon).ToList();
         }
 
 

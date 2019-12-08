@@ -1,39 +1,33 @@
-﻿@model IEnumerable<FinalProject2.Models.Order>
+﻿@model FinalProject2.Models.OrderCartViewModel
 
 @{
-    ViewBag.Title = "OrderSummary";
+    ViewBag.Title = "Order Summary";
 }
-
-<h2>OrderSummary</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EventID)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrderID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OrderID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrderID })
-        </td>
-    </tr>
+@section Scripts {
+    <script src="~/Scripts/MVCEventScripts/EventScripts.js"></script>
 }
+<h2>Index</h2>
 
-</table>
+<div>
+    <table class="table" width="100%">
+            <tr>
+                <th> </th>
+                <th width="25%">Title</th>
+                <th width="25%">Start Date</th>
+                <th width="40">Quantity</th>
+                <th width="25%"></th>
+            </tr>
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td width="25%">@item.EventSelected.EventName </td>
+                    <td width="25%">@item.EventSelected.StartDate </td>
+                    <td width="25%" id="item-count-@item.EventID" >@item.Count</td>
+                    <td width="25%"><a href="#" data-id="@item.CartID" class="RemoveLink" width="40">Remove</a></td>
+                </tr>
+            }
+        </table>
+        <p class="button">
+            @Html.ActionLink("Back to Browse", "Index", "Events")
+        </p>
+</div>

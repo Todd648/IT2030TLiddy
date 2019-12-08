@@ -60,6 +60,7 @@ namespace FInalProject2.Controllers
         }
 
         // GET: Events/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +92,7 @@ namespace FInalProject2.Controllers
         }
 
         // GET: Events/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
