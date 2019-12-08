@@ -12,7 +12,7 @@ namespace FinalProject2.Controllers
 {
     public class EventTypesController : Controller
     {
-        private MVCEventDB db = new MVCEventDB();
+        MVCEventDB db = new MVCEventDB();
 
         // GET: EventTypes
         public ActionResult Index()

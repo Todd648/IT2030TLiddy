@@ -13,7 +13,7 @@ namespace FinalProject2.Controllers
     public class OrdersController : Controller
     {
 
-        private MVCEventDB db = new MVCEventDB();
+        MVCEventDB db = new MVCEventDB();
 
         // GET: Orders
         public ActionResult Index()
