@@ -21,7 +21,7 @@ namespace FinalProject2.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("MVCEventDB (FinalProject2)", throwIfV1Schema: false)
+            : base("MVCEventDB", throwIfV1Schema: false)
         {
         }
 

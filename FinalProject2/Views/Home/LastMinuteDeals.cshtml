@@ -1,16 +1,54 @@
 ﻿@model IEnumerable<FinalProject2.Models.Event>
-<div id="LastMinuteDeals">
-    <ul>
-        @foreach (var item in Model)
-        {
-            <li>@item.EventName</li>
-            <li>@item.StartDate</li>
-            <li>@item.VenueCity</li>
-            <li>@item.VenueState</li>
+    <div id="LastMinuteDeals">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrganizerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VenueCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VenueState)
+                </th>
+                <th></th>
+            </tr>
 
-        }
-    </ul>
-    <p>
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</div>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.EventName, "Details/" + item.EventID, "Events")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrganizerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VenueCity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VenueState)
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>

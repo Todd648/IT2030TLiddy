@@ -22,11 +22,14 @@ namespace FinalProject2.Models
         public virtual DateTime EndDate { get; set; }
         [Required]
         public virtual string OrganizerName { get; set; }
+        [EmailAddress]
         public virtual string OrganizerEmail { get; set; }
+        [Phone]
         public virtual string OrganizerPhone { get; set; }
-        [Required]
+        [Required][MaxLength(50)]
         public virtual string VenueName { get; set; }
         public virtual string VenueCity { get; set; }
+        [StringLength(2)]
         public virtual string VenueState { get; set; }
         [Required][Range(1,320000)]
         public virtual int MaxTickets { get; set; }

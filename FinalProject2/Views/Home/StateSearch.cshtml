@@ -4,16 +4,54 @@
     <script src="~/Scripts/MVCEventScripts/EventScripts.js"></script>
 }
 <div id="Event-List">
-    <ul>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrganizerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VenueCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VenueState)
+            </th>
+            <th></th>
+        </tr>
+
         @foreach (var item in Model)
         {
-            <li>@item.EventName</li>
-            <li>@item.Type.Name</li>
-            <li>@item.StartDate</li>
-            <li>@item.VenueCity</li>
-            <li>@item.VenueState</li>
+            <tr>
+                <td>
+                    @Html.ActionLink(item.EventName, "Details/" + item.EventID, "Events")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrganizerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VenueCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VenueState)
+                </td>
+            </tr>
         }
-    </ul>
+
+    </table>
     <p>
         @Html.ActionLink("Return Home", "Index")
     </p>
