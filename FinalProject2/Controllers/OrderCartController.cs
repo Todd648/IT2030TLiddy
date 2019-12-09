@@ -10,7 +10,7 @@ using FinalProject2.Models;
 
 namespace FinalProject2.Controllers
 {
-    public class OrdersController : Controller
+    public class OrderCartController : Controller
     {
 
         MVCEventDB db = new MVCEventDB();
@@ -40,6 +40,8 @@ namespace FinalProject2.Controllers
             OrderCart cart = OrderCart.GetCart(this.HttpContext);
             Event order = db.Orders.SingleOrDefault(e => e.RecordID == id).EventSelected;
             int newItemCount = cart.RemoveOrder(id);
+
+            cart.RemoveOrder(id);
 
             OrderCartRemoveViewModel vm = new OrderCartRemoveViewModel()
             {

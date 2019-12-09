@@ -115,5 +115,5 @@
     @Html.ActionLink("Back to List", "Index")
 </p>
 <p>
-    <input type="button" value="Add to Cart" onclick="location.href='@Url.Action("AddOrder", "Orders", new { id = Model.EventID })'" />
+    <input type="button" value="Add to Cart" onclick="location.href='@Url.Action("AddOrder", "OrderCart", new { id = Model.EventID })'" />
 </p>

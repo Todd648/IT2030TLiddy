@@ -1,4 +1,4 @@
-namespace FinalProject2.Migrations
+namespace FInalProject2.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -9,7 +9,7 @@ namespace FinalProject2.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(FinalProject2.Models.MVCEventDB context)

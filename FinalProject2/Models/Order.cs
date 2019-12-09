@@ -9,7 +9,8 @@ namespace FinalProject2.Models
 {
     public class Order
     {
-        [Key] public int OrderID { get; set; }
+        [Key] 
+        public int RecordID { get; set; }
         public string CartID { get; set; }
         public int EventID { get; set; }
         public virtual Event EventSelected { get; set; }

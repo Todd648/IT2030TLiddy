@@ -10,7 +10,7 @@ namespace FinalProject2.Models
     {
         public string OrderCartID;
         
-        private MVCEventDB db = new MVCEventDB();
+       MVCEventDB db = new MVCEventDB();
 
         public static OrderCart GetCart(HttpContextBase context)
         {
@@ -40,7 +40,7 @@ namespace FinalProject2.Models
         
         public void AddOrder(int eventID)
         {
-            Order cartItem = db.Orders.SingleOrDefault(c =>c.CartID == this.OrderCartID && c.EventID == eventID);
+            Order cartItem = db.Orders.SingleOrDefault(c => c.CartID ==this.OrderCartID  && c.EventID == eventID);
             if(cartItem == null)
             {
                 cartItem = new Order()
@@ -57,9 +57,9 @@ namespace FinalProject2.Models
             }
             db.SaveChanges();
         }
-        public int RemoveOrder(int OrderID)
+        public int RemoveOrder(int orderid)
         {
-            Order cartItem = db.Orders.SingleOrDefault(c => c.CartID == this.OrderCartID && c.OrderID == OrderID);
+            Order cartItem = db.Orders.SingleOrDefault(c => c.CartID == this.OrderCartID && c.RecordID == orderid);
             if (cartItem == null)
             {
                 throw new NullReferenceException();
@@ -78,6 +78,8 @@ namespace FinalProject2.Models
             }
             db.SaveChanges();
             return newCount;
+
+
         }
     }
 }
