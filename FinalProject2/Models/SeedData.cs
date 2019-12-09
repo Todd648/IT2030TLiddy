@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace FinalProject2.Models
 {
-    public class SeedData : DropCreateDatabaseIfModelChanges<MVCEventDB>
+    public class SeedData : DropCreateDatabaseAlways<MVCEventDB>
     {
         protected override void Seed(MVCEventDB context)
         {
