@@ -19,16 +19,18 @@
         </tr>
         @foreach (var item in Model.CartItems)
         {
-    <tr id="Record-"@item.RecordID>
+    <tr id="record-" @item.RecordID>
         <td width="20%">@item.RecordID</td>
-        <td width="20%">@item.EventSelected.EventName </td>
+        <td width="20%">@Html.ActionLink(item.EventSelected.EventName, "Details/" + item.EventID, "Events")</td>
         <td width="20%">@item.EventSelected.StartDate </td>
         <td width="20%" id="item-count-@item.EventID">@item.Count</td>
         <td width="20%"><a href="#" data-id="@item.RecordID" class="RemoveLink">Remove</a></td>
     </tr>
         }
     </table>
+
+    
     <p class="button">
-        @Html.ActionLink("Back to Events", "Index", "Events")
+        @Html.ActionLink("Home", "Index", "Home")
     </p>
 </div>

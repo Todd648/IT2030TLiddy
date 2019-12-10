@@ -26,12 +26,12 @@ namespace FinalProject2.Controllers
 
             return View(vm);
         }
-        [Authorize]
+       [Authorize]
         public ActionResult AddOrder(int id)
         {
             OrderCart cart = OrderCart.GetCart(this.HttpContext);
             cart.AddOrder(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("OrderSummary");
         }
 
         [HttpPost]

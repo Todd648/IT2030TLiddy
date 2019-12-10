@@ -34,7 +34,7 @@ namespace FinalProject2.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        [HttpDelete]
         public ActionResult RemoveOrder(int id)
         {
             OrderCart cart = OrderCart.GetCart(this.HttpContext);
