@@ -11,9 +11,9 @@ namespace FinalProject2.Models
     {
         [Key]
         public virtual int EventID { get; set; }
-        [Required][StringLength(50)]
+        [Required][MaxLength(50)]
         public virtual string EventName { get; set; }
-        [StringLength(150)]
+        [MaxLength(150)]
         public virtual string Description { get; set; }
         public virtual EventType Type { get; set; }
         [Required]
@@ -22,18 +22,17 @@ namespace FinalProject2.Models
         public virtual DateTime EndDate { get; set; }
         [Required]
         public virtual string OrganizerName { get; set; }
-        [EmailAddress]
         public virtual string OrganizerEmail { get; set; }
-        [Phone]
         public virtual string OrganizerPhone { get; set; }
-        [Required][MaxLength(50)]
+        [Required]
         public virtual string VenueName { get; set; }
+        [Required]
         public virtual string VenueCity { get; set; }
-        [StringLength(2)]
+        [Required]
         public virtual string VenueState { get; set; }
-        [Required][Range(1,320000)]
+        [Required][Range(1,32000)]
         public virtual int MaxTickets { get; set; }
-        [Required][Range(1,320000)]
+        [Required][Range(1,32000)]
         public virtual int AvailableTickets { get; set; }
 
     }

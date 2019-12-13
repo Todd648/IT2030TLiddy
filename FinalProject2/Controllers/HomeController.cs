@@ -100,7 +100,7 @@ namespace FinalProject2.Controllers
         }
         private List<Event> GetLastMinuteDeals()
         {
-            var comingSoon = DateTime.Today.AddDays(2);
+            var comingSoon = DateTime.Today.AddDays(3);
             var thePast = DateTime.Today.AddDays(-1);
 
             return db.Events.Where(a => a.StartDate > thePast && a.StartDate <= comingSoon).ToList();
